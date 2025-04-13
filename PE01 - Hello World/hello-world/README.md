@@ -4,7 +4,7 @@ This is an introductory app using the Expo and the React Framework to develop mo
 - Change Background Yellow
 - Display Name, Degree Program, and School
 
-!(https://drive.google.com/file/d/1tuXtm47ggtoGXzVyB_VV59NRxR4ZY5wx/view?usp=sharing)
+![](https://drive.google.com/file/d/1tuXtm47ggtoGXzVyB_VV59NRxR4ZY5wx/view?usp=sharing)
 
 
 
