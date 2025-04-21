@@ -1,4 +1,5 @@
 # cs624-pe-David
 
 ## Available Programming Exercises
-- PE01 - Hello World
+- Module01: PE01 - Hello World
+- Module02: PE02 - Core Components
