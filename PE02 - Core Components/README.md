@@ -11,7 +11,7 @@ This app demonstrates the Core Components on using the React framework. Basic Co
 
 To run the program, change your director to the core-components root folder and run the command below inside your terminal:
 ```
-npx expo start --tunnel
+npx expo start
 ```
 
 Once run, a QR code will generate and can be scanned using the Expo Go app. Other options are available to run in Web Browser, Debbuger
