@@ -3,3 +3,4 @@
 ## Available Programming Exercises
 - Module01: PE01 - Hello World
 - Module02: PE02 - Core Components
+- Module03: PE03 - Todo App
