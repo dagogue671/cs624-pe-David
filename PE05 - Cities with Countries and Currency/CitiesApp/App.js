@@ -11,10 +11,7 @@ LogBox.ignoreLogs([
 import Cities from './src/Cities/Cities';
 import City from './src/Cities/City';
 import AddCity from './src/AddCity/AddCity';
-import AddCountry from './src/Country/AddCountry';
-import Countries from './src/Country/Countries';
 import { colors } from './src/theme';
-import Country from './src/Country/Country';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -39,32 +36,6 @@ function CitiesStackScreen({ navigation, route, cities, addCity, addLocation }) 
         name="City"
         children={(props) => (
           <City {...props} cities={cities} addCity={addCity} addLocation={addLocation} />
-        )}
-      />
-    </Stack.Navigator>
-  );
-}
-
-function CountriesStackScreen({ navigation, route, cities, addCity, addLocation }) {
-  return (
-    <Stack.Navigator
-      screenOptions={{
-        headerStyle: {
-          backgroundColor: colors.primary,
-        },
-        headerTintColor: '#fff',
-      }}
-    >
-      <Stack.Screen
-        name="Countries"
-        children={(props) => (
-          <Countries {...props} cities={cities} addCity={addCity} addLocation={addLocation} />
-        )}
-      />
-      <Stack.Screen
-        name="Country"
-        children={(props) => (
-          <Country {...props} cities={cities} addCity={addCity} addLocation={addLocation} />
         )}
       />
     </Stack.Navigator>
@@ -121,21 +92,6 @@ export default class App extends Component {
               />
             )}
           />
-          <Tab.Screen
-            name="CountriesNav"
-            children={(props) => (
-              <CountriesStackScreen
-                {...props}
-                cities={this.state.cities}
-                addCity={this.addCity}
-                addLocation={this.addLocation}
-              />
-            )}
-            />
-          <Tab.Screen
-            name="Add Country"
-            component={AddCountry}
-            />
         </Tab.Navigator>
       </NavigationContainer>
     );
