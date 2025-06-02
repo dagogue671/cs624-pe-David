@@ -11,6 +11,8 @@ LogBox.ignoreLogs([
 import Cities from './src/Cities/Cities';
 import City from './src/Cities/City';
 import AddCity from './src/AddCity/AddCity';
+import AddCountry from './src/Countries/AddCountry';
+import Countries from './src/Countries/Countries';
 import { colors } from './src/theme';
 
 const Tab = createBottomTabNavigator();
@@ -45,6 +47,7 @@ function CitiesStackScreen({ navigation, route, cities, addCity, addLocation }) 
 export default class App extends Component {
   state = {
     cities: [],
+    countries: [],
   };
 
   addCity = (city) => {
@@ -65,6 +68,12 @@ export default class App extends Component {
 
     this.setState({ cities });
   };
+
+  addCountry = (country) => {
+    this.setState((prevState) => ({
+      countries: [...prevState.countries, country],
+    }));
+  }
 
   render() {
     return (
@@ -89,6 +98,26 @@ export default class App extends Component {
                 cities={this.state.cities}
                 addCity={this.addCity}
                 addLocation={this.addLocation}
+              />
+            )}
+          />
+          <Tab.Screen
+            name="Countries"
+            children={(props) => (
+              <Countries
+                {...props}
+                countries={this.state.countries}
+                addCountry={this.addCountry}
+              />
+            )}
+          />
+          <Tab.Screen
+            name="Add Country"
+            children={(props) => (
+              <AddCountry
+                {...props}
+                countries={this.state.countries}
+                addCountry={this.addCountry}
               />
             )}
           />
