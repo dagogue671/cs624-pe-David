@@ -13,6 +13,7 @@ import City from './src/Cities/City';
 import AddCity from './src/AddCity/AddCity';
 import AddCountry from './src/Countries/AddCountry';
 import Countries from './src/Countries/Countries';
+import Country from './src/Countries/Country';
 import { colors } from './src/theme';
 
 const Tab = createBottomTabNavigator();
@@ -38,6 +39,32 @@ function CitiesStackScreen({ navigation, route, cities, addCity, addLocation }) 
         name="City"
         children={(props) => (
           <City {...props} cities={cities} addCity={addCity} addLocation={addLocation} />
+        )}
+      />
+    </Stack.Navigator>
+  );
+}
+
+function CountriesStackScreen({ navigation, route, countries, addCountry, addCurrency }) {
+  return (
+    <Stack.Navigator
+      screenOptions={{
+        headerStyle: {
+          backgroundColor: colors.primary,
+        },
+        headerTintColor: '#fff',
+      }}
+    >
+      <Stack.Screen
+        name="Countries"
+        children={(props) => (
+          <Countries {...props} countries={countries} addCountry={addCountry} addCurrency={addCurrency} />
+        )}
+      />
+      <Stack.Screen
+        name="Country"
+        children={(props) => (
+          <Country {...props} countries={countries} addCountry={addCountry} addCurrency={addCurrency} />
         )}
       />
     </Stack.Navigator>
@@ -75,6 +102,19 @@ export default class App extends Component {
     }));
   }
 
+  addCurrency = (currency, country) => {
+    const index = this.state.countries.findIndex((item) => item.id === country.id);
+    const updatedCountry = { ...this.state.countries[index], currency };
+
+    const countries = [
+      ...this.state.countries.slice(0, index),
+      updatedCountry,
+      ...this.state.countries.slice(index + 1),
+    ];
+
+    this.setState({ countries });
+  }
+
   render() {
     return (
       <NavigationContainer>
@@ -102,12 +142,13 @@ export default class App extends Component {
             )}
           />
           <Tab.Screen
-            name="Countries"
+            name="CountriesNav"
             children={(props) => (
-              <Countries
+              <CountriesStackScreen
                 {...props}
                 countries={this.state.countries}
                 addCountry={this.addCountry}
+                addCurrency={this.addCurrency}
               />
             )}
           />
