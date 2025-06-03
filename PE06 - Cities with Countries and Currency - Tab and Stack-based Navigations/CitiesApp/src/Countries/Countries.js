@@ -16,7 +16,8 @@ export default class Countries extends React.Component {
   navigate = (item) => {
     this.props.navigation.navigate('Country', {
       country: item,
-      currency: this.props.currency,
+      countries: this.props.countries,
+      addCurrency: this.props.addCurrency,
     });
   };
 

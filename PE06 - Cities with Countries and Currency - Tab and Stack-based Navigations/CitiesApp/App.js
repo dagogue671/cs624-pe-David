@@ -104,7 +104,7 @@ export default class App extends Component {
 
   addCurrency = (currency, country) => {
     const index = this.state.countries.findIndex((item) => item.id === country.id);
-    const updatedCountry = { ...this.state.countries[index], currency };
+    const updatedCountry = { ...this.state.countries[index], locations: [...this.state.countries[index].locations, currency] };
 
     const countries = [
       ...this.state.countries.slice(0, index),

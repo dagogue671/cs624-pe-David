@@ -21,7 +21,7 @@ class Country extends React.Component {
 
     const currency = { name, info };
 
-    addCurrency(currency, country);
+    addCurrency(currency, country)
 
     this.setState({ name: '', info: '' });
   };
@@ -31,8 +31,6 @@ class Country extends React.Component {
 
     // Derive the updated version of the country from the global countries array
     const updatedCountry = countries.find((item) => item.id === country.id) || country;
-
-    console.log('Updated Country:', updatedCountry);
 
     return (
       <View style={{ flex: 1 }}>
